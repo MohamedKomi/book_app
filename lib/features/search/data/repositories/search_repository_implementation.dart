@@ -11,7 +11,7 @@ class SearchRepositoryImplementation extends SearchRepository {
   SearchRepositoryImplementation(this.apiService);
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks(
+  Future<Either<Failures, List<BookModel>>> fetchSearchedBooks(
       {required String searchString}) async {
     try {
       final data = await apiService.get(

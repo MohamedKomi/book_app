@@ -1,6 +1,8 @@
 import 'package:book_app/core/utils/app_router.dart';
 import 'package:book_app/features/home/presentation/maneger/featured_books_cubit/featured_book_cubit.dart';
 import 'package:book_app/features/home/presentation/maneger/newest_books_cibit/newest_books_cubit.dart';
+import 'package:book_app/features/search/data/repositories/search_repository_implementation.dart';
+import 'package:book_app/features/search/presentation/maneger/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,6 +34,9 @@ class MyApp extends StatelessWidget {
               NewestBooksCubit(sl<HomeRepositoryImplementation>())
                 ..fetchNewestBooks(),
         ),
+        BlocProvider(
+            create: (context) =>
+                SearchCubit(sl<SearchRepositoryImplementation>())),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

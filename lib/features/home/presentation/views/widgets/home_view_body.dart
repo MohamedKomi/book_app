@@ -14,6 +14,7 @@ class HomeViewBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
@@ -37,6 +38,7 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         const SliverFillRemaining(
+
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: BooksListView(),

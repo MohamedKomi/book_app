@@ -20,12 +20,12 @@ class BestSellerListViewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
-        height: 125,
+        height: 135,
         child: Row(
           children: [
             CustomBookItem(
-                imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
-
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+            ),
             const SizedBox(
               width: 30,
             ),
@@ -41,17 +41,19 @@ class BestSellerListViewItem extends StatelessWidget {
                       overflow: TextOverflow.clip,
                       style: Styles.textStyle20
                           .copyWith(fontFamily: kGtSectraFine),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(
-                    height: 3,
+                    height: 2,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? '',
                     style: Styles.textStyle14,
+                    maxLines: 1,
                   ),
                   const SizedBox(
-                    height: 3,
+                    height: 2,
                   ),
                   Row(
                     children: [
